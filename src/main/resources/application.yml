@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: springfox-swagger
+  datasource:
+    driverClassName: "org.mariadb.jdbc.Driver"
+    url: "jdbc:mysql://127.0.0.1:3306/twsgi_member"
+    username: "root"
+    password: ""
