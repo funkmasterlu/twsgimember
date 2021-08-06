@@ -28,10 +28,9 @@
   </select>
 
   <select id="getUserInfoByEmail" resultType="com.example.openapidemo.model.UserInfo">
-    select u.id as id, u.name as name, u.`member_numbering` as member_numbering, u.`birthday` as birthday,
-           u.`email` as email, u.`address` as address, u.`phone` as phone, u.`cell_phone` as cell_phone,
-           mt.`name` as member_type, o.`name` as organization_name, m.`name` as mission, m.`isAdmin` as is_admin,
-           u.password_salt as password
+    select u.id as id, u.name as name, u.`member_numbering` as memberNumbering, u.`birthday` as birthday,
+           u.`email` as email, u.`address` as address, u.`phone` as phone, u.`cell_phone` as cellPhone,
+           mt.`name` as memberType, o.`name` as organizationName, m.`name` as mission, m.`isAdmin` as is_admin
     from `user` u
              inner join organization o on u.`organization_id` = o.`id`
              inner join member_type mt on u.`member_type` = mt.`id`

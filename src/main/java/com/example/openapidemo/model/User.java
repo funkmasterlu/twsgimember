@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 
-@ApiModel(description = "用戶資訊")
+@ApiModel(description = "用戶")
 public class User {
     @ApiModelProperty(value = "ID", required = true)
     private int id;

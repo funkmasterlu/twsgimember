@@ -1,9 +1,11 @@
 package com.example.openapidemo.model;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.util.Date;
 
+@ApiModel(description = "用戶資訊")
 public class UserInfo {
     @ApiModelProperty(value = "ID", required = true)
     private int id;
