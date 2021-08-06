@@ -2,6 +2,7 @@ package com.example.openapidemo.service;
 
 import com.example.openapidemo.dao.UserDao;
 import com.example.openapidemo.model.User;
+import com.example.openapidemo.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,10 @@ public class UserService {
 
     public User getUserByEmail(String email) {
         return userDao.getUserByEmail(email);
+    }
+
+    public UserInfo getUserInfoByEmail(String email) {
+        return userDao.getUserInfoByEmail(email);
     }
 
 }

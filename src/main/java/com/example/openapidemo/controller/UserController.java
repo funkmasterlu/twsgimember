@@ -1,6 +1,7 @@
 package com.example.openapidemo.controller;
 
 import com.example.openapidemo.model.User;
+import com.example.openapidemo.model.UserInfo;
 import com.example.openapidemo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,9 +29,9 @@ public class UserController {
 
     @ApiOperation("顯示使用者資訊")
     @GetMapping("/info")
-    public User getUserByEmail() {
+    public UserInfo getUserInfoByEmail() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.getUserByEmail(authentication.getName());
+        UserInfo user = userService.getUserInfoByEmail(authentication.getName());
         System.out.println("login user : " + authentication.getName());
         if (user != null) {
             return user;

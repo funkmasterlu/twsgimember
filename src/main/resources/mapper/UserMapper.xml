@@ -26,4 +26,16 @@
            inner join mission m on u.`mission` = m.id
     WHERE u.email = #{email}
   </select>
+
+  <select id="getUserInfoByEmail" resultType="com.example.openapidemo.model.UserInfo">
+    select u.id as id, u.name as name, u.`member_numbering` as member_numbering, u.`birthday` as birthday,
+           u.`email` as email, u.`address` as address, u.`phone` as phone, u.`cell_phone` as cell_phone,
+           mt.`name` as member_type, o.`name` as organization_name, m.`name` as mission, m.`isAdmin` as is_admin,
+           u.password_salt as password
+    from `user` u
+             inner join organization o on u.`organization_id` = o.`id`
+             inner join member_type mt on u.`member_type` = mt.`id`
+             inner join mission m on u.`mission` = m.id
+    WHERE u.email = #{email}
+  </select>
 </mapper>
