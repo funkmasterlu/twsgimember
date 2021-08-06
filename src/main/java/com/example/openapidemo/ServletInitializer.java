@@ -1,4 +1,4 @@
-package tw.sgi.member;
+package com.example.openapidemo;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

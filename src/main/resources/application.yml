@@ -3,6 +3,22 @@ spring:
     name: springfox-swagger
   datasource:
     driverClassName: "org.mariadb.jdbc.Driver"
-    url: "jdbc:mysql://127.0.0.1:3306/twsgi_member"
-    username: "root"
-    password: ""
+    url: "jdbc:mysql://un0jueuv2mam78uv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/piztpp6bju2gkhkq"
+    username: "wx230ukg5vh20n41"
+    password: "bamg74b5tbd8mhmz"
+
+server:
+  port: 8080
+
+# ===== 自定义swagger配置 ===== #
+swagger:
+  enable: true
+  application-name: ${spring.application.name}
+  application-version: 1.0
+  application-description: springfox swagger 3.0整合Demo
+  try-host: http://localhost:${server.port}
+
+
+mybatis:
+  mapper-locations: "classpath:mapper/*.xml"
+  type-aliases-package: "com.example.openapidemo.model"

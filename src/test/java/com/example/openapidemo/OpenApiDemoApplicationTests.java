@@ -1,10 +1,10 @@
-package tw.sgi.member;
+package com.example.openapidemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TwsgimemberApplicationTests {
+class OpenApiDemoApplicationTests {
 
     @Test
     void contextLoads() {

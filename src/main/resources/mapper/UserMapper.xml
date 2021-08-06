@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.openapidemo.dao.UserDao">
+  <select id="getUserById" resultType="com.example.openapidemo.model.User">
+    select u.id as id, u.name as name, u.`member_numbering` as member_numbering, u.`birthday` as birthday,
+    u.`email` as email, u.`address` as address, u.`phone` as phone, u.`cell_phone` as cell_phone,
+    mt.`name` as member_type, o.`name` as organization_name, m.`name` as mission, m.`isAdmin` as is_admin,
+           u.password_salt as password
+    from `user` u
+    inner join organization o on u.`organization_id` = o.`id`
+    inner join member_type mt on u.`member_type` = mt.`id`
+    inner join mission m on u.`mission` = m.id
+    WHERE u.id = #{id}
+  </select>
+
+  <select id="getUserByEmail" resultType="com.example.openapidemo.model.User">
+    select u.id as id, u.name as name, u.`member_numbering` as member_numbering, u.`birthday` as birthday,
+           u.`email` as email, u.`address` as address, u.`phone` as phone, u.`cell_phone` as cell_phone,
+           mt.`name` as member_type, o.`name` as organization_name, m.`name` as mission, m.`isAdmin` as is_admin,
+           u.password_salt as password
+    from `user` u
+           inner join organization o on u.`organization_id` = o.`id`
+           inner join member_type mt on u.`member_type` = mt.`id`
+           inner join mission m on u.`mission` = m.id
+    WHERE u.email = #{email}
+  </select>
+</mapper>
