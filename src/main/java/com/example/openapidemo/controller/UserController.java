@@ -5,8 +5,9 @@ import com.example.openapidemo.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
 
 @Api(tags="使用者管理")
 @RestController
@@ -26,16 +27,16 @@ public class UserController {
 //    }
 
     @ApiOperation("顯示使用者資訊")
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable int id) {
-        User user = userService.getUserById(id);
-//        System.out.println("User : " + user.getName());
+    @GetMapping("/info")
+    public User getUserByEmail() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.getUserByEmail(authentication.getName());
+        System.out.println("login user : " + authentication.getName());
         if (user != null) {
             return user;
         } else {
             return null;
         }
-
     }
 //
 //    @ApiOperation("使用者列表")
